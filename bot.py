@@ -15,6 +15,8 @@ from PIL import Image
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import ffmpeg
+GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
+CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
 client = commands.Bot(command_prefix='$')
 @client.event
 async def  on_ready():
@@ -49,11 +51,13 @@ async def levels(ctx):
 async def runes(ctx, champ, lane):
     async with ctx.typing():
         print('ran into cmd')
-        google_chrome_options = webdriver.chrome.options.Options()
+        google_chrome_options = webdriver.ChromeOptions()
+        google_chrome_options.add_argument('--disable-gpu')
+        google_chrome_options.add_argument('--no-sandbox')
         google_chrome_options.headless = True
         google_chrome_options.add_argument('--window-size=1920,3000')
         web_driver = webdriver.Chrome(
-            executable_path="chromedriver.exe",
+            executable_path=CHROMEDRIVER_PATH,
             options=google_chrome_options
         )
         url = f"https://op.gg/champion/{champ}/statistics/{lane}"
@@ -73,11 +77,13 @@ async def runes(ctx, champ, lane):
 async def levels(ctx, champ, lane):
     async with ctx.typing():
         print('ran into cmd')
-        google_chrome_options = webdriver.chrome.options.Options()
+        google_chrome_options = webdriver.ChromeOptions()
+        google_chrome_options.add_argument('--disable-gpu')
+        google_chrome_options.add_argument('--no-sandbox')
         google_chrome_options.headless = True
         google_chrome_options.add_argument('--window-size=1920,3000')
         web_driver = webdriver.Chrome(
-            executable_path="chromedriver.exe",
+            executable_path=CHROMEDRIVER_PATH,
             options=google_chrome_options
         )
         url = f"https://op.gg/champion/{champ}/statistics/{lane}"
@@ -97,11 +103,13 @@ async def levels(ctx, champ, lane):
 async def items(ctx, champ, lane):
     async with ctx.typing():
         print('ran into cmd')
-        google_chrome_options = webdriver.chrome.options.Options()
+        google_chrome_options = webdriver.ChromeOptions()
+        google_chrome_options.add_argument('--disable-gpu')
+        google_chrome_options.add_argument('--no-sandbox')
         google_chrome_options.headless = True
         google_chrome_options.add_argument('--window-size=1920,3000')
         web_driver = webdriver.Chrome(
-            executable_path="chromedriver.exe",
+            executable_path=CHROMEDRIVER_PATH,
             options=google_chrome_options
         )
         url = f"https://op.gg/champion/{champ}/statistics/{lane}"
