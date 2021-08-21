@@ -52,7 +52,7 @@ async def runes(ctx, champ, lane):
         google_chrome_options.headless = True
         google_chrome_options.add_argument('--window-size=1920,3000')
         web_driver = webdriver.Chrome(
-            executable_path=os.environ.get('CHROMEDRIVER_PATH'),
+            executable_path="chromedriver.exe",
             options=google_chrome_options
         )
         url = f"https://op.gg/champion/{champ}/statistics/{lane}"
@@ -76,7 +76,7 @@ async def levels(ctx, champ, lane):
         google_chrome_options.headless = True
         google_chrome_options.add_argument('--window-size=1920,3000')
         web_driver = webdriver.Chrome(
-            executable_path=os.environ.get('CHROMEDRIVER_PATH'),
+            executable_path="chromedriver.exe",
             options=google_chrome_options
         )
         url = f"https://op.gg/champion/{champ}/statistics/{lane}"
@@ -100,7 +100,7 @@ async def items(ctx, champ, lane):
         google_chrome_options.headless = True
         google_chrome_options.add_argument('--window-size=1920,3000')
         web_driver = webdriver.Chrome(
-            executable_path=os.environ.get('CHROMEDRIVER_PATH'),
+            executable_path="chromedriver.exe",
             options=google_chrome_options
         )
         url = f"https://op.gg/champion/{champ}/statistics/{lane}"
