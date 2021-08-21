@@ -127,7 +127,9 @@ async def items(ctx, champ, lane):
         await ctx.send(
             file=discord.File("items1.png")
         )
-
+@client.command()
+async def test(ctx):
+    ctx.send("Bot oc cho")
 keep_alive()
 my_secret = os.environ.get("TOKEN")
 client.run(my_secret)
