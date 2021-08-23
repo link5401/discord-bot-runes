@@ -4,7 +4,6 @@ import os
 import requests
 import json
 from replit import db
-from keep_alive import keep_alive
 from discord.ext import commands
 import time
 from multiprocessing.pool import ThreadPool
