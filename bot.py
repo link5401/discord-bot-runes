@@ -52,7 +52,7 @@ async def runes(ctx, champ, lane):
         google_chrome_options.add_argument('--disable-gpu')
         google_chrome_options.add_argument('--no-sandbox')
         google_chrome_options.add_argument('--disable-dev-shm-usage')
-        google_chrome_options.addArguments("enable-features=NetworkServiceInProcess")
+        google_chrome_options.add_argument('--enable-features=NetworkService,NetworkServiceInProcess')
         google_chrome_options.binary_location= os.environ.get('GOOGLE_CHROME_BIN')
         google_chrome_options.headless = True
         google_chrome_options.add_argument('--window-size=1920,3000')
@@ -81,7 +81,7 @@ async def levels(ctx, champ, lane):
         google_chrome_options.add_argument('--disable-gpu')
         google_chrome_options.add_argument('--no-sandbox')
         google_chrome_options.add_argument('--disable-dev-shm-usage')
-        google_chrome_options.addArguments("enable-features=NetworkServiceInProcess")
+        google_chrome_options.add_argument('--enable-features=NetworkService,NetworkServiceInProcess')
         google_chrome_options.binary_location= os.environ.get('GOOGLE_CHROME_BIN')
         google_chrome_options.headless = True
         google_chrome_options.add_argument('--window-size=1920,3000')
@@ -112,7 +112,7 @@ async def items(ctx, champ, lane):
         google_chrome_options.add_argument('--disable-dev-shm-usage')
         google_chrome_options.headless = True
         google_chrome_options.add_argument('--window-size=1920,3000')
-        google_chrome_options.addArguments("enable-features=NetworkServiceInProcess")
+        google_chrome_options.add_argument('--enable-features=NetworkService,NetworkServiceInProcess')
         google_chrome_options.binary_location= os.environ.get('GOOGLE_CHROME_BIN')
         web_driver = webdriver.Chrome(
             executable_path=os.environ.get('CHROMEDRIVER_PATH'),
