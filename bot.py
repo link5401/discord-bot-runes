@@ -81,7 +81,6 @@ async def levels(ctx, champ, lane):
         google_chrome_options = webdriver.ChromeOptions()
         google_chrome_options.add_argument('--disable-gpu')
         google_chrome_options.add_argument('--no-sandbox')
-        google_chrome_options.binary_location = GOOGLE_CHROME_PATH
         google_chrome_options.headless = True
         google_chrome_options.add_argument('--window-size=1920,3000')
         web_driver = webdriver.Chrome(
@@ -108,7 +107,6 @@ async def items(ctx, champ, lane):
         google_chrome_options = webdriver.ChromeOptions()
         google_chrome_options.add_argument('--disable-gpu')
         google_chrome_options.add_argument('--no-sandbox')
-        google_chrome_options.binary_location = GOOGLE_CHROME_PATH
         google_chrome_options.headless = True
         google_chrome_options.add_argument('--window-size=1920,3000')
         web_driver = webdriver.Chrome(
