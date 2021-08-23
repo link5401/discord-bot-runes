@@ -72,7 +72,8 @@ async def runes(ctx, champ, lane):
         await ctx.send(
             file=discord.File("runes1.png")
         )
-
+        web_driver.quit()
+        await ctx.send("Reached end of cmd")
 @client.command()
 async def levels(ctx, champ, lane):
     async with ctx.typing():
@@ -101,7 +102,8 @@ async def levels(ctx, champ, lane):
         await ctx.send(
             file=discord.File("skills1.png")
         )
-
+        web_driver.quit()
+        await ctx.send("Reached end of cmd")
 @client.command()
 async def items(ctx, champ, lane):
     async with ctx.typing():
@@ -125,11 +127,12 @@ async def items(ctx, champ, lane):
         web_driver.save_screenshot("element.png")
         im = Image.open('element.png')
         im = im.crop((420, 1185, 1150, 1850))
-        web_driver.close()
         im.save('items1.png')
         await ctx.send(
             file=discord.File("items1.png")
         )
+        web_driver.quit()
+        await ctx.send("Reached end of cmd")
 @client.command()
 async def test(ctx):
     await ctx.send("Bot oc cho")
