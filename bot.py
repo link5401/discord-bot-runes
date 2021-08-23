@@ -131,7 +131,6 @@ async def items(ctx, champ, lane):
 @client.command()
 async def test(ctx):
     await ctx.send("Bot oc cho")
-keep_alive()
 my_secret = os.environ.get("TOKEN")
 client.run(my_secret)
 
