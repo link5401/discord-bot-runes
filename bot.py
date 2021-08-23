@@ -15,8 +15,6 @@ from PIL import Image
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import ffmpeg
-GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
-CHROMEDRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
 client = commands.Bot(command_prefix='$')
 @client.event
 async def  on_ready():
@@ -55,18 +53,18 @@ async def runes(ctx, champ, lane):
         google_chrome_options.add_argument('--disable-gpu')
         google_chrome_options.add_argument('--no-sandbox')
         google_chrome_options.add_argument('--disable-dev-shm-usage')
+        google_chrome_options.binary_location= os.environ.get('GOOGLE_CHROME_BIN')
         google_chrome_options.headless = True
         google_chrome_options.add_argument('--window-size=1920,3000')
         web_driver = webdriver.Chrome(
-            executable_path=CHROMEDRIVER_PATH,
-            chrome_options=google_chrome_options
+            executable_path=os.environ.get('CHROMEDRIVER_PATH'),
+            options=google_chrome_options
         )
         url = f"https://op.gg/champion/{champ}/statistics/{lane}"
         await ctx.send("Build :\n")
     async with ctx.typing():
         web_driver.get(url)
         web_driver.save_screenshot("element.png")
-        web_driver.quit()
         im = Image.open('element.png')
         im = im.crop((420, 1860, 1150, 2460))
         web_driver.close()
@@ -83,10 +81,11 @@ async def levels(ctx, champ, lane):
         google_chrome_options.add_argument('--disable-gpu')
         google_chrome_options.add_argument('--no-sandbox')
         google_chrome_options.add_argument('--disable-dev-shm-usage')
+        google_chrome_options.binary_location= os.environ.get('GOOGLE_CHROME_BIN')
         google_chrome_options.headless = True
         google_chrome_options.add_argument('--window-size=1920,3000')
         web_driver = webdriver.Chrome(
-            executable_path=CHROMEDRIVER_PATH,
+            executable_path=os.environ.get('CHROMEDRIVER_PATH'),
             options=google_chrome_options
         )
         url = f"https://op.gg/champion/{champ}/statistics/{lane}"
@@ -94,7 +93,6 @@ async def levels(ctx, champ, lane):
     async with ctx.typing():
         web_driver.get(url)
         web_driver.save_screenshot("element.png")
-        web_driver.quit()
         im = Image.open('element.png')
         im = im.crop((420, 1000, 1150, 1170))
         web_driver.close()
@@ -113,8 +111,9 @@ async def items(ctx, champ, lane):
         google_chrome_options.add_argument('--disable-dev-shm-usage')
         google_chrome_options.headless = True
         google_chrome_options.add_argument('--window-size=1920,3000')
+        google_chrome_options.binary_location= os.environ.get('GOOGLE_CHROME_BIN')
         web_driver = webdriver.Chrome(
-            executable_path=CHROMEDRIVER_PATH,
+            executable_path=os.environ.get('CHROMEDRIVER_PATH'),
             options=google_chrome_options
         )
         url = f"https://op.gg/champion/{champ}/statistics/{lane}"
@@ -122,7 +121,6 @@ async def items(ctx, champ, lane):
     async with ctx.typing():
         web_driver.get(url)
         web_driver.save_screenshot("element.png")
-        web_driver.quit()
         im = Image.open('element.png')
         im = im.crop((420, 1185, 1150, 1850))
         web_driver.close()
