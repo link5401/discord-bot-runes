@@ -54,12 +54,12 @@ async def runes(ctx, champ, lane):
         google_chrome_options = webdriver.ChromeOptions()
         google_chrome_options.add_argument('--disable-gpu')
         google_chrome_options.add_argument('--no-sandbox')
-        google_chrome_options.binary_location = GOOGLE_CHROME_PATH
+        google_chrome_options.add_argument('--disable-dev-shm-usage')
         google_chrome_options.headless = True
         google_chrome_options.add_argument('--window-size=1920,3000')
         web_driver = webdriver.Chrome(
             executable_path=CHROMEDRIVER_PATH,
-            options=google_chrome_options
+            chrome_options=google_chrome_options
         )
         url = f"https://op.gg/champion/{champ}/statistics/{lane}"
         await ctx.send("Build :\n")
@@ -81,6 +81,7 @@ async def levels(ctx, champ, lane):
         google_chrome_options = webdriver.ChromeOptions()
         google_chrome_options.add_argument('--disable-gpu')
         google_chrome_options.add_argument('--no-sandbox')
+        google_chrome_options.add_argument('--disable-dev-shm-usage')
         google_chrome_options.headless = True
         google_chrome_options.add_argument('--window-size=1920,3000')
         web_driver = webdriver.Chrome(
@@ -128,7 +129,7 @@ async def items(ctx, champ, lane):
         )
 @client.command()
 async def test(ctx):
-    ctx.send("Bot oc cho")
+    await ctx.send("Bot oc cho")
 keep_alive()
 my_secret = os.environ.get("TOKEN")
 client.run(my_secret)
