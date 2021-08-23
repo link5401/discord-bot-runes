@@ -66,6 +66,7 @@ async def runes(ctx, champ, lane):
     async with ctx.typing():
         web_driver.get(url)
         web_driver.save_screenshot("element.png")
+        web_driver.quit()
         im = Image.open('element.png')
         im = im.crop((420, 1860, 1150, 2460))
         web_driver.close()
@@ -93,6 +94,7 @@ async def levels(ctx, champ, lane):
     async with ctx.typing():
         web_driver.get(url)
         web_driver.save_screenshot("element.png")
+        web_driver.quit()
         im = Image.open('element.png')
         im = im.crop((420, 1000, 1150, 1170))
         web_driver.close()
@@ -120,6 +122,7 @@ async def items(ctx, champ, lane):
     async with ctx.typing():
         web_driver.get(url)
         web_driver.save_screenshot("element.png")
+        web_driver.quit()
         im = Image.open('element.png')
         im = im.crop((420, 1185, 1150, 1850))
         web_driver.close()
