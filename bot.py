@@ -7,7 +7,6 @@ from keep_alive import keep_alive
 from discord.ext import commands
 from db import dBset
 from googleapiclient.discovery import build
-from NHentai.nhentai import NHentai
 from bs4 import BeautifulSoup
 
 client = commands.Bot(command_prefix='$')
